@@ -12,6 +12,7 @@
 			"explaintext",
 			"gsrlimit",
 			"gsrsearch",
+			"pageid",
 			"pageimages"
 		]
 	}

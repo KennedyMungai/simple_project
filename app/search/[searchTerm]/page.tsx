@@ -1,7 +1,11 @@
-type Props = {}
+type Props = {
+    params: {
+        searchTerm: string
+    }
+}
 
-const SearchTermPage = (props: Props) => {
-	return <div>SearchTermPage</div>
+const SearchTermPage = ({params: {searchTerm}}: Props) => {
+	return <section className="text-white">{searchTerm}</section>
 }
 
 export default SearchTermPage

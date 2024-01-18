@@ -1,5 +1,5 @@
 interface IResult {
-    pageId: string,
+    pageid: string,
     title: string,
     extract: string,
     thumbnail?: {

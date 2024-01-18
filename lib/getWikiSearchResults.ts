@@ -1,4 +1,4 @@
-const getWikiSearchResults = (searchTerm: string) => {
+const getWikiSearchResults = async (searchTerm: string) => {
     const searchParams = new URLSearchParams({
         action: 'query',
         generator: 'search',

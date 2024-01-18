@@ -1,4 +1,4 @@
-import getWikiSearchResults from "@/lib/getWikiSearchResults"
+import getWikiSearchResults from '@/lib/getWikiSearchResults'
 
 type Props = {
 	params: {
@@ -6,15 +6,28 @@ type Props = {
 	}
 }
 
+export const generateMetadata = ({ params: { searchTerm } }: Props) => {
+	return {
+		title: searchTerm,
+        description: `A wikipedia page about ${searchTerm}`
+	}
+}
+
 const SearchTermPage = async ({ params: { searchTerm } }: Props) => {
 	const wikiData: ISearchResult = await getWikiSearchResults(searchTerm)
 	const results: IResult[] | undefined = wikiData?.query?.pages
 
-    const content = (
-        <main className="bg-slate-200 mx-auto max-w-lg py-1 min-h-screen">
-            {results ? Object.values(results).map(result => <p key={result.pageid}>{JSON.stringify(result)}</p>) : <h2 className="p-2 text-xl">{`${searchTerm} Not Found`}</h2>}
-        </main>
-    )
+	const content = (
+		<main className='bg-slate-200 mx-auto max-w-lg py-1 min-h-screen'>
+			{results ? (
+				Object.values(results).map((result) => (
+					<p key={result.pageid}>{JSON.stringify(result)}</p>
+				))
+			) : (
+				<h2 className='p-2 text-xl'>{`${searchTerm} Not Found`}</h2>
+			)}
+		</main>
+	)
 
 	return content
 }

@@ -1,5 +1,5 @@
 export default function Home() {
   return (
-    <main className="h-[95vh]"></main>
+    <main className="h-[90vh]"></main>
   )
 }

@@ -1,5 +1,5 @@
 export default function Home() {
   return (
-    <main className="min-h-screen"></main>
+    <main className="h-[95vh]"></main>
   )
 }

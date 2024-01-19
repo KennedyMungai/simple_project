@@ -8,19 +8,18 @@ type Props = {
 }
 
 export const generateMetadata = async ({ params: { searchTerm } }: Props) => {
-    const wikiData: ISearchResult = await getWikiSearchResults(searchTerm)
-    const displayTerm = searchTerm.replaceAll('%20', ' ')
+	const wikiData: ISearchResult = await getWikiSearchResults(searchTerm)
+	const displayTerm = searchTerm.replaceAll('%20', ' ')
 
-    if(!wikiData.query?.pages)
-    {
-        return {
-            title: `${displayTerm} Not Found`
-        }
-    }
+	if (!wikiData.query?.pages) {
+		return {
+			title: `${displayTerm} Not Found`
+		}
+	}
 
 	return {
 		title: displayTerm,
-        description: `A wikipedia page about ${displayTerm}`
+		description: `A wikipedia page about ${displayTerm}`
 	}
 }
 

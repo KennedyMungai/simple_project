@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 type Props = {
@@ -10,7 +11,7 @@ const Item = ({ result }: Props) => {
 			<h2>
 				<Link
 					href={`https://en.wikipedia.org/?curid=${result.pageid}`}
-                    target='_blank'
+					target='_blank'
 					className='text-xl font-bold underline'
 				>
 					{result.title}
@@ -19,6 +20,26 @@ const Item = ({ result }: Props) => {
 			<p>{result.extract}</p>
 		</div>
 	)
+
+	const content = result?.thumbnail?.source ? (
+		<article className='m-4 max-w-lg'>
+			<div className='flex flex-row gap-4'>
+				<div className='flex flex-col justify-center'>
+					<Image
+						src={result.thumbnail.source}
+						alt={result.title}
+						width={result.thumbnail.width}
+						height={result.thumbnail.height}
+						loading='lazy'
+					/>
+				</div>
+			</div>
+		</article>
+	) : (
+		<article className='m-4 max-w-lg'>{itemTextCol}</article>
+	)
+
+	return content
 }
 
 export default Item

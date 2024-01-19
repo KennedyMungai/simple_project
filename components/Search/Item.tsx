@@ -16,7 +16,7 @@ const Item = ({ result }: Props) => {
 					{result.title}
 				</Link>
 			</h2>
-			<p>{result.title}</p>
+			<p>{result.extract}</p>
 		</div>
 	)
 }
